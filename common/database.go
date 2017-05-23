@@ -31,13 +31,11 @@ func (db *Database) DropSchema(m interface{}) {
 	}
 }
 
-
 func (db *Database) CreateModel(m interface{}) {
 	if err := db.DB.Create(m).Error; err != nil {
 		return
 	}
 }
-
 
 func (db *Database) GetAllModels(m interface{}) {
 	if err := db.DB.Find(m).Error; err != nil {

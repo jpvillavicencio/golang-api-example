@@ -2,8 +2,8 @@ package main
 
 import (
 	"log"
-	"myapp/models"
 	"myapp/common"
+	"myapp/models"
 )
 
 func main() {
