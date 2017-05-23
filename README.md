@@ -6,8 +6,7 @@
 4. Profit!
 
 ## Docs
-### /api/v1/users
-GET
+### GET /api/v1/users
 
 Returns list of users
 
@@ -40,8 +39,7 @@ Output:
 ]
 ```
 
-### /api/v1/users/{userId}
-GET
+### GET /api/v1/users/{userId}
 
 Returns list of users
 
@@ -65,8 +63,7 @@ Output:
 ]
 ```
 
-### /api/v1/users/add
-POST
+### POST /api/v1/users/add
 
 Creates user and adds it to DB.
 
