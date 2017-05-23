@@ -6,6 +6,8 @@ import (
 	"app/common"
 	"app/models"
 	"net/http"
+	"github.com/gorilla/mux"
+	"strconv"
 )
 
 type UserController struct {
@@ -51,8 +53,15 @@ func (c *UserController) UserGetAll(w http.ResponseWriter, r *http.Request) {
 func (c *UserController) UserGet(w http.ResponseWriter, r *http.Request) {
 	db := common.Database{}
 	db.InitDB()
+	vars := mux.Vars(r)
+	userId := vars["userId"]
 	user := models.User{}
-	db.GetModel(&user, 1)
+	uId, err := strconv.Atoi(userId)
+	if err != nil {
+		panic(err)
+		return
+	}
+	db.GetModel(&user, uId)
 	c.SendJSON(
 		w,
 		r,

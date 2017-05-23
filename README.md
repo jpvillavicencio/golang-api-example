@@ -40,6 +40,31 @@ Output:
 ]
 ```
 
+###/api/v1/users/{userId}
+GET
+
+Returns list of users
+
+```
+curl -X GET http://localhost:8080/api/v1/users/1
+```
+
+Output:
+
+```
+[
+  {
+    "ID": 1,
+    "CreatedAt": "2017-05-23T05:37:13Z",
+    "UpdatedAt": "2017-05-23T05:37:13Z",
+    "DeletedAt": null,
+    "Age": 21,
+    "Name": "NewFoo",
+    "Email": "newfoobar"
+  },
+]
+```
+
 ###/api/v1/users/add
 POST
 

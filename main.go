@@ -1,11 +1,11 @@
 package main
 
 import (
+	"app/common"
+	"app/controllers"
+	"app/models"
 	"github.com/gorilla/mux"
 	"log"
-	"app/common"
-	"app/models"
-	"app/controllers"
 	"net/http"
 )
 
@@ -24,6 +24,7 @@ func main() {
 	// Routes handling
 	r.HandleFunc("/", i.Index)
 	apiRouter.HandleFunc("/users", c.UserGetAll).Methods("GET")
+	apiRouter.HandleFunc("/users/{userId}", c.UserGet).Methods("GET")
 	apiRouter.HandleFunc("/users/add", c.UserAdd).Methods("POST")
 	http.Handle("/", r)
 	log.Fatal(http.ListenAndServe(":8080", nil))
