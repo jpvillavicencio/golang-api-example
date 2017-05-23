@@ -3,12 +3,18 @@ package main
 import (
 	"github.com/gorilla/mux"
 	"log"
+	"app/common"
+	"app/models"
 	"app/controllers"
 	"net/http"
 )
 
 func main() {
 	log.Print("Starting main")
+	db := common.Database{}
+	db.InitDB()
+	db.InitSchema(models.User{})
+
 	// Controllers declaration
 	c := &controllers.UserController{}
 	i := &controllers.IndexController{}

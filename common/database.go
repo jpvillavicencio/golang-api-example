@@ -15,7 +15,7 @@ func (db *Database) InitDB() {
 	var err error
 	username := os.Getenv("MYSQL_USER")
 	password := os.Getenv("MYSQL_ROOT_PASSWORD")
-	url := os.Getenv("MYSQL_URL")
+	url := "tcp("+os.Getenv("MYSQL_URL")+")"
 	dbName := os.Getenv("MYSQL_DATABASE")
 
 	sqlUrl := username + ":" + password + "@" + url + "/" + dbName + "?charset=utf8&parseTime=True"
