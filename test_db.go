@@ -2,14 +2,14 @@ package main
 
 import (
 	"log"
-	"myapp/common"
-	"myapp/models"
+	"app/common"
+	"app/models"
 )
 
 func main() {
 	// Initialise database
 	db := common.Database{}
-	db.InitDB("root", "password", "go_api", "")
+	db.InitDB()
 	db.DropSchema(models.User{})
 	db.InitSchema(models.User{})
 

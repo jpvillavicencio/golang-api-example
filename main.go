@@ -3,7 +3,7 @@ package main
 import (
 	"github.com/gorilla/mux"
 	"log"
-	"myapp/controllers"
+	"app/controllers"
 	"net/http"
 )
 

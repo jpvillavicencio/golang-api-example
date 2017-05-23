@@ -2,7 +2,7 @@ package controllers
 
 import (
 	"fmt"
-	"myapp/common"
+	"app/common"
 	"net/http"
 )
 

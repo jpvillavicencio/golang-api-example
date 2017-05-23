@@ -3,8 +3,8 @@ package controllers
 import (
 	"encoding/json"
 	"log"
-	"myapp/common"
-	"myapp/models"
+	"app/common"
+	"app/models"
 	"net/http"
 )
 
@@ -14,7 +14,7 @@ type UserController struct {
 
 func (c *UserController) UserAdd(w http.ResponseWriter, r *http.Request) {
 	db := common.Database{}
-	db.InitDB("root", "password", "go_api", "")
+	db.InitDB()
 	var user models.User
 	if r.Body == nil {
 		http.Error(w, "Please send a request body", 400)
@@ -37,7 +37,7 @@ func (c *UserController) UserAdd(w http.ResponseWriter, r *http.Request) {
 
 func (c *UserController) UserGetAll(w http.ResponseWriter, r *http.Request) {
 	db := common.Database{}
-	db.InitDB("root", "password", "go_api", "")
+	db.InitDB()
 	allUsers := []models.User{}
 	db.GetAllModels(&allUsers)
 	c.SendJSON(
@@ -50,7 +50,7 @@ func (c *UserController) UserGetAll(w http.ResponseWriter, r *http.Request) {
 
 func (c *UserController) UserGet(w http.ResponseWriter, r *http.Request) {
 	db := common.Database{}
-	db.InitDB("root", "password", "go_api", "")
+	db.InitDB()
 	user := models.User{}
 	db.GetModel(&user, 1)
 	c.SendJSON(
